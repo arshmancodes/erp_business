@@ -1,9 +1,11 @@
+import 'package:erp_business/controllers/authController.dart';
 import 'package:erp_business/screens/dashboard.dart';
 import 'package:erp_business/screens/nav_bar_items/camera_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
+  Get.put(AuthController());
   runApp(MyApp());
 }
 
