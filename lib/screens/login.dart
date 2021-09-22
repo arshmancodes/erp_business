@@ -12,9 +12,21 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final AuthController controller = Get.find();
+  final _formKey = GlobalKey<FormState>();
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
   @override
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
+
+    if (isValid) {
+      _formKey.currentState!.save();
+      controller.login(username.toString(), password.toString(), "Arshman");
+      Get.toNamed('/dashboard');
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -22,40 +34,69 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SafeArea(
         child: Center(
-          child: Column(
-            children: [
-              TextField(
-                controller: username,
-                decoration: InputDecoration(
-                  label: Text("Username"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextFormField(
+                        controller: username,
+                        decoration: InputDecoration(
+                          label: Text("Username"),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                        }),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                        controller: password,
+                        decoration: InputDecoration(
+                          label: Text("Password"),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter some text';
+                          } else if (value.length < 6) {
+                            return 'Password must be at least 6 characters';
+                          }
+                        }),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _submit();
+                      },
+                      child: Text("Login"),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Create Account'),
+                        TextButton(
+                            onPressed: () {
+                              Get.offNamed('/register');
+                            },
+                            child: Text("Register")),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              TextField(
-                controller: password,
-                decoration: InputDecoration(
-                  label: Text("Password"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  controller.login(
-                      username.toString(), password.toString(), "Arshman");
-                },
-                child: Text("Login"),
-              ),
-            ],
+            ),
           ),
         ),
       ),
