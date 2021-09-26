@@ -1,4 +1,6 @@
-import 'package:erp_business/controllers/authController.dart';
+import 'dart:convert';
+
+import 'package:erp_business/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
@@ -23,8 +25,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (isValid) {
       _formKey.currentState!.save();
+      controller.register(username.text, password.text, email.text).then((response) {
+        if(response.statusCode == 200){
+          Get.toNamed('/login');
+          Get.snackbar('${jsonDecode(response.body)['message']}', '');
+        }else{
+          Get.snackbar('${jsonDecode(response.body)['message']}', '');
+        }
+      });
 
-      Get.toNamed('/dashboard');
     }
   }
 

@@ -1,5 +1,5 @@
-import 'package:erp_business/controllers/authController.dart';
-import 'package:erp_business/controllers/certificateController.dart';
+import 'package:erp_business/controllers/auth_controller.dart';
+import 'package:erp_business/controllers/certificate_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

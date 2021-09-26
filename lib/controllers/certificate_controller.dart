@@ -1,4 +1,4 @@
-import 'package:erp_business/models/certificateModel.dart';
+import 'package:erp_business/models/certificate_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 

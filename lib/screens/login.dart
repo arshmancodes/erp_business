@@ -1,4 +1,6 @@
-import 'package:erp_business/controllers/authController.dart';
+import 'dart:convert';
+
+import 'package:erp_business/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
@@ -11,7 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final AuthController controller = Get.find();
+  final AuthController controller = Get.find<AuthController>();
   final _formKey = GlobalKey<FormState>();
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -22,8 +24,13 @@ class _LoginPageState extends State<LoginPage> {
 
     if (isValid) {
       _formKey.currentState!.save();
-      controller.login(username.toString(), password.toString(), "Arshman");
-      Get.toNamed('/dashboard');
+      controller.login(username.text, password.text).then((response) {
+        if(response.statusCode == 200){
+          Get.toNamed('/dashboard');
+        }else{
+          Get.snackbar('${jsonDecode(response.body)['message']}', '');
+        }
+      });
     }
   }
 

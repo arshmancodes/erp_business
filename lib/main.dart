@@ -1,5 +1,5 @@
-import 'package:erp_business/controllers/attendanceController.dart';
-import 'package:erp_business/controllers/authController.dart';
+import 'package:erp_business/controllers/attendance_controller.dart';
+import 'package:erp_business/controllers/auth_controller.dart';
 import 'package:erp_business/screens/dashboard.dart';
 import 'package:erp_business/screens/login.dart';
 import 'package:erp_business/screens/nav_bar_items/attendance.dart';
