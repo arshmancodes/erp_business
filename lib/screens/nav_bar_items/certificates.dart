@@ -44,6 +44,17 @@ class _CertificatesState extends State<Certificates> {
                       )
                     : CertificateWidget(
                         certificateController: _certificateController),
+                Card(
+                    child: Column(
+                  children: [
+                    ListTile(
+                      title: Text('Check In: '),
+                    ),
+                    ListTile(
+                      title: Text('Date: '),
+                    )
+                  ],
+                )),
                 ElevatedButton(
                   onPressed: () {
                     Get.toNamed('/cameraScreen');
