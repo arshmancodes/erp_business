@@ -37,6 +37,7 @@ dependencies:
   path:
   qr_code_scanner: ^0.5.2
   qr_flutter: ^4.0.0
+  bottom_navy_bar: ^6.0.0
  
 
 

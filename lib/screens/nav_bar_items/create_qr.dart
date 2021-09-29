@@ -1,3 +1,4 @@
+import 'package:erp_business/constant/base_url.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -22,11 +23,10 @@ class CreateQRState extends State<CreateQR> {
   GlobalKey globalKey = new GlobalKey();
   String _dataString = "Hello from this QR";
   String? _inputErrorText;
+  final _textController = TextEditingController(text: " ");
 
   @override
   Widget build(BuildContext context) {
-    final _textController = TextEditingController(text: " ");
-
     return Scaffold(
       appBar: AppBar(
         title: Text('QR Code Generator'),
@@ -51,19 +51,13 @@ class CreateQRState extends State<CreateQR> {
                   ),
                 ),
               ),
-              QrImage(
-                data: _textController.text,
-                size: 200,
-                backgroundColor: Colors.white,
-              ),
               SizedBox(
                 height: 10,
               ),
               ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    print(_textController.text);
-                  });
+                  QrData = _textController.text;
+                  Get.toNamed('/viewQR');
                 },
                 child: Text("Create QR"),
               ),

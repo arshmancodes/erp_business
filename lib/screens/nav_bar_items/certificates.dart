@@ -25,7 +25,7 @@ class _CertificatesState extends State<Certificates> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.lightBlue,
         elevation: 0,
         title: Text(_authController.currentUser?.name ?? 'No user logged in'),
       ),
@@ -99,7 +99,7 @@ class CertificateWidget extends StatelessWidget {
           itemCount: _certificateController.certificates.length,
           itemBuilder: (context, index) {
             return Card(
-                color: Colors.orange[50],
+                color: Colors.lightBlue,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
