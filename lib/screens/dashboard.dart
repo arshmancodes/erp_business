@@ -1,8 +1,11 @@
+import 'package:erp_business/controllers/attendance_controller.dart';
 import 'package:erp_business/screens/nav_bar_items/attendance.dart';
 import 'package:erp_business/screens/nav_bar_items/certificates.dart';
 import 'package:erp_business/screens/nav_bar_items/home.dart';
 import 'package:erp_business/screens/nav_bar_items/profile.dart';
+import 'package:erp_business/screens/nav_bar_items/scanqr.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -18,14 +21,21 @@ class _DashboardState extends State<Dashboard> {
   PageController _pageController = PageController();
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
+  AttendanceController controller = Get.find<AttendanceController>();
 
   List<Widget> _buildScreens() {
     return [
-      Home(),
+      ScanQR(),
       Certificates(),
       Attendance(),
       Profile(),
     ];
+  }
+
+  @override
+  void initState() {
+    controller.attendanceModel();
+    super.initState();
   }
 
   void _onPageChanged(int index) {

@@ -35,11 +35,13 @@ class _AttendanceState extends State<Attendance> {
                   child: Row(
                     children: [
                       Align(
-                        alignment: Alignment.bottomLeft,
+                        alignment: Alignment.bottomRight,
                         child: Text(
-                          "User Id : ${controller.attendance[1].userid.toString()}",
+                          "Attendance Date: 24 Sept",
                           style: GoogleFonts.poppins(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       SizedBox(
@@ -47,13 +49,13 @@ class _AttendanceState extends State<Attendance> {
                         width: 20,
                       ),
                       Align(
-                        alignment: Alignment.bottomRight,
+                        alignment: Alignment.bottomLeft,
                         child: Text(
-                          "Attendance Date: ${controller.attendance[1].date.toString()}",
+                          "Attendance Status : PRESENT",
                           style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green[900]),
                         ),
                       ),
                     ],
@@ -69,11 +71,13 @@ class _AttendanceState extends State<Attendance> {
                   child: Row(
                     children: [
                       Align(
-                        alignment: Alignment.bottomLeft,
+                        alignment: Alignment.bottomRight,
                         child: Text(
-                          "User Id : ${controller.attendance[2].userid.toString()}",
+                          "Attendance Date: 25 Sept",
                           style: GoogleFonts.poppins(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       SizedBox(
@@ -81,13 +85,13 @@ class _AttendanceState extends State<Attendance> {
                         width: 20,
                       ),
                       Align(
-                        alignment: Alignment.bottomRight,
+                        alignment: Alignment.bottomLeft,
                         child: Text(
-                          "Attendance Date: ${controller.attendance[2].date.toString()}",
+                          "Attendance Status : PRESENT",
                           style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green[900]),
                         ),
                       ),
                     ],
@@ -103,11 +107,13 @@ class _AttendanceState extends State<Attendance> {
                   child: Row(
                     children: [
                       Align(
-                        alignment: Alignment.bottomLeft,
+                        alignment: Alignment.bottomRight,
                         child: Text(
-                          "User Id : ${controller.attendance[3].userid.toString()}",
+                          "Attendance Date: 26 Sept",
                           style: GoogleFonts.poppins(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       SizedBox(
@@ -115,13 +121,13 @@ class _AttendanceState extends State<Attendance> {
                         width: 20,
                       ),
                       Align(
-                        alignment: Alignment.bottomRight,
+                        alignment: Alignment.bottomLeft,
                         child: Text(
-                          "Attendance Date: ${controller.attendance[3].date.toString()}",
+                          "Attendance Status : PRESENT",
                           style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green[900]),
                         ),
                       ),
                     ],

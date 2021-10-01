@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: AdminDashboard(),
+      home: Dashboard(),
       routes: {
         '/cameraScreen': (context) => CameraScreen(),
         '/dashboard': (context) => Dashboard(),
